@@ -109,6 +109,10 @@ a:hover, a:focus {
   color: #777;
 }
 
+.post-share li {
+  display: inline;
+}
+
 /* tag_box */
 .tag_box {
   list-style: none;
