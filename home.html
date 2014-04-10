@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blog
+title: greenfield blog
 tagline:
 header : 
 group: navigation
@@ -10,12 +10,12 @@ group: navigation
 <ul class="posts">
   {% for post in site.posts %}
   <li>
-    <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-    <br/>
+    <div class="post-title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></div>
     <span>{{ post.author }}</span> &raquo;
     <span>{{ post.date | date_to_string }}</span>
-    <br/>
-    {{ post.description }}
+    <div class="post-description">
+      {{ post.description }}
+    </div>
   </li>
   {% endfor %}
 </ul>

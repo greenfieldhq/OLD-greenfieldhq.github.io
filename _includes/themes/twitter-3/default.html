@@ -37,7 +37,6 @@
   </head>
 
   <body data-color="green">
-
     <nav class="sticky">
     <div class="logo">
       <h1>greenfield</h1>
@@ -50,28 +49,34 @@
       <li><a href="http://www.greenfieldhq.com/#about">About</a></li>
       <li><a href="http://www.greenfieldhq.com/#team">Team</a></li>
       <li><a href="http://www.greenfieldhq.com/#portfolio">Portfolio</a></li>
-      <li class="active"><a href="#blog">Blog</a></li>
+      <li class="active"><a href="http://blog.greenfieldhq.com">Blog</a></li>
       <li><a href="http://www.greenfieldhq.com/#contact">Contact</a></li>
     </ul>		
     </nav>
 
+    <div class="nav-spacer"></div>
+
     <ul class="nav sub-nav">
-      {% assign pages_list = site.pages %}
-      {% assign group = 'navigation' %}
-      {% include JB/pages_list %}
+      {% if page.url == "/home.html" %}
+        <li class="active"><a href="/home.html" class="active">Posts</a></li>
+      {% else %}
+        <li><a href="/home.html">Posts</a></li>
+      {% endif %}
+
+      {% if page.url == "/tags.html" %}
+        <li class="active"><a href="/tags.html" class="active">Tags</a></li>
+      {% else %}
+        <li><a href="/tags.html">Tags</a></li>
+      {% endif %}
     </ul>
 
     <div class="container-narrow">
       <div class="content">
         {{ content }}
       </div>
-      <hr>
     </div>
-    <footer>
-    <!--p>&copy; {{ site.time | date: '%Y' }}
-      <span class="greenfield">greenfield</span>
-    </p-->
-    </footer>
+
+    <footer></footer>
 
     {% include JB/analytics %}
 
@@ -91,7 +96,6 @@
           }
           if($(window).width() < 768) {
             $('.menu-trigger a').click(function(){
-
               if(!$('.menu-trigger').hasClass('open')) {
                 $('.menu-trigger').addClass('open');
                 $('nav > ul').stop(false,true).slideDown();			
@@ -99,13 +103,10 @@
                 $('.menu-trigger').removeClass('open');
                 $('nav > ul').stop(false,true).slideUp();			
               }
-
-
               return false;
             });
           }
         });
-
       });
     </script>
   </body>
