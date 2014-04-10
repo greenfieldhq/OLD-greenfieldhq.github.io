@@ -84,7 +84,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : greenfield
+      short_name : greenfieldhq
     livefyre :
       site_id : 123
     intensedebate :
