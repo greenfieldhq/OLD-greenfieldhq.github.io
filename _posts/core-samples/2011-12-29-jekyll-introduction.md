@@ -3,6 +3,9 @@ layout: post
 category : lessons
 tagline: "Supporting tagline"
 tags : [intro, beginner, jekyll, tutorial]
+title: My Blog Post
+description: This is a description
+author: Ryan Tremaine
 ---
 {% include JB/setup %}
 
