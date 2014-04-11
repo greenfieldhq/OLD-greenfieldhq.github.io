@@ -169,3 +169,11 @@ footer p span.greenfield {
   font-family: 'Lobster', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
+
+.fb_iframe_widget {
+  display: inline !important;
+}
+
+.fb_iframe_widget span {
+  display: inline !important;
+}
