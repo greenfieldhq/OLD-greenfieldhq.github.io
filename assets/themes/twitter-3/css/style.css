@@ -6,8 +6,7 @@ body {
 }
 
 .sub-nav {
-  position: absolute;
-  right: 10px;
+  float: right;
 }
 
 body[data-color="green"] li a {
@@ -34,6 +33,7 @@ div.nav-spacer {
   max-width: 700px;
   padding-left: 15px;
   padding-right: 15px;
+  clear: both;
 }
 
 .container-narrow > hr {
