@@ -89,33 +89,68 @@
     <script src="{{ ASSET_PATH }}/js/waypoints.sticky.js" rel="javascript"></script>
 
     <script>
+      Greenfield = {
+        init: function() {
+          console.log('init');
+          this.handleResize();
+        },
+        handleResize: function() {
+          $this = this;
+
+          if($(window).width() < 768) {
+            $('.menu-trigger a').click(function(){
+              $this.toggleMenu();
+              return false;
+            });
+          }
+
+          $this.homesize();
+
+          $(window).resize(function(){
+            if($(window).width() >= 768) {
+              $('.menu-trigger a').removeClass('open');
+              $('nav > ul').removeAttr('style');
+            }
+            if($(window).width() < 768) {
+              $('.menu-trigger a').unbind('click').click(function(){
+                $this.toggleMenu();
+                return false;
+              });
+            }
+            $this.homesize();
+          });
+
+        },
+        toggleMenu: function() {
+          console.log('toggleMenu');
+          if(!$('.menu-trigger').hasClass('open')) {
+            $('.menu-trigger').addClass('open');
+            $('nav > ul').stop(false,true).slideDown();			
+          } else {
+            $('.menu-trigger').removeClass('open');
+            $('nav > ul').stop(false,true).slideUp();			
+          }
+        },
+        homesize: function() {
+          windowHeight = $(window).height();
+          windowWidth = $(window).width();
+          elements = $("#home, #maximage, .mc-cycle, #maximage > .mc-image, #home .pattern");
+          elements.css({'height':'auto'});
+          elements.css({ 'height': windowHeight+"px", "max-height": windowHeight+"px"});
+          if($('body').hasClass('boxed')) {
+            $('#maximage, .bxslider li').css({'width': "100%"});
+            } else {
+            $('.bxslider li').css({'width': windowWidth+"px"});
+          }
+        }
+      };
+
+
       $(function() {
         $('nav').waypoint('sticky', {
           stuckClass: 'sticky'
         });
-
-        $(window).resize(function(){
-          console.log('resize');
-          if($(window).width() >= 768) {
-            $('.menu-trigger a').removeClass('open');
-            $('nav > ul').removeAttr('style');
-          }
-          if($(window).width() < 768) {
-            $('.menu-trigger a').click(function(){
-              if(!$('.menu-trigger').hasClass('open')) {
-                console.log('!open');
-                $('.menu-trigger').addClass('open');
-                $('nav > ul').stop(false,true).slideDown();			
-              } else {
-                console.log('open');
-                $('.menu-trigger').removeClass('open');
-                $('nav > ul').stop(false,true).slideUp();			
-              }
-              return false;
-            });
-          }
-        });
-        $(window).resize();
+        Greenfield.init();
       });
     </script>
   </body>
