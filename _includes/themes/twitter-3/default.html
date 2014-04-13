@@ -98,7 +98,7 @@
           $this = this;
 
           if($(window).width() < 768) {
-            $('.menu-trigger a').click(function(){
+            $('.menu-trigger a').unbind().click(function(){
               $this.toggleMenu();
               return false;
             });
@@ -112,7 +112,7 @@
               $('nav > ul').removeAttr('style');
             }
             if($(window).width() < 768) {
-              $('.menu-trigger a').unbind('click').click(function(){
+              $('.menu-trigger a').unbind().click(function(){
                 $this.toggleMenu();
                 return false;
               });
