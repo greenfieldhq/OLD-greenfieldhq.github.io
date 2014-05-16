@@ -8,6 +8,10 @@ description: First part of a series on building an app with Ember-CLI.
 author: Mike Munroe
 ---
 {% include JB/setup %}
+**UPDATE** (05/16/2014): Bryan Cardarella from DockYard is working on a similar tutorial and he has gone a bit more in depth than I have. Rather than regurgitate similar coverage on our blog, head over and check out Bryan's [coverage of the same topic](http://reefpoints.dockyard.com/2014/05/07/building-an-ember-app-with-rails-part-1.html).
+
+-----
+
 You are new to Ember or might even be a novice and you keep hearing about this Ember-CLI thing.
 
 ##What is Ember-CLI?
