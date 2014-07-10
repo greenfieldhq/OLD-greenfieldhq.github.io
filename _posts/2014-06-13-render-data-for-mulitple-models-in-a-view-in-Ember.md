@@ -9,6 +9,8 @@ author: Mike Munroe
 ---
 {% include JB/setup %}
 
+Updated on 7/10: switch to using an ObjectController for simpler code.
+
 If you follow any [decent Ember tutorial](http://emberjs.com/guides/), you will quickly learn how easy it is to create
 a resource within Ember and render some data for that resource's model within a template.
 
@@ -117,13 +119,6 @@ our index template.
         users: this.store.findAll('user'),
         tweet: this.store.findAll('tweet')
       });
-    },
-    setupController: function(controller, model) {
-      var users = model.users;
-      var tweets = model.tweets;
-
-      controller.set('users', users);
-      controller.set('tweets', tweet);
     }
   });
 
@@ -135,7 +130,7 @@ The index controller will need to be defined as an array controller.
 {% highlight javascript %}
   # app/controllers/index.js
 
-  export default Ember.ArrayController.extend({});
+  export default Ember.)ObjectController.extend({});
 {% endhighlight %}
 
 Last, let's present our data within our index template.
