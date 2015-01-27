@@ -22,6 +22,7 @@ This assumes that you're using:
 
 ## The Repository Structure
 
+<pre>
 ├── README.md
 ├── circle.yml
 ├── ember
@@ -42,10 +43,11 @@ This assumes that you're using:
     ├── spec
     ├── tmp
     └── vendor
+</pre>
 
 ## circle.yml
 
-```yml
+{% highlight yaml %}
 general:
   # Use Circle CI's automatic settings inference for the Rails app
   build_dir: rails
@@ -62,7 +64,7 @@ test:
   # Run the Ember tests after the Rails tests
   post:
     - cd ../ember && ./node_modules/.bin/ember test
-```
+{% endhighlight %}
 
 ## Environment Variables
 
