@@ -9,15 +9,17 @@ group: navigation
 
 <ul class="posts">
   {% for post in site.posts %}
-  <li>
-    <div class="post-title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></div>
-    <div class="post-author">
-      <span>{{ post.author }}</span> &raquo;
-      <span>{{ post.date | date_to_string }}</span>
-    </div>
-    <div class="post-description">
-      {{ post.description }}
-    </div>
-  </li>
+    {% assign author = site.data.authors[post.author] %}
+
+    <li>
+      <div class="post-title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></div>
+      <div class="post-author">
+        <span>{{ author.name }}</span> &raquo;
+        <span>{{ post.date | date_to_string }}</span>
+      </div>
+      <div class="post-description">
+        {{ post.description }}
+      </div>
+    </li>
   {% endfor %}
 </ul>
