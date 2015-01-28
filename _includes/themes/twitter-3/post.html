@@ -1,12 +1,25 @@
+{% assign author = site.data.authors[page.author] %}
+
 <div class="page-header">
   <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
-    <div class="date">
-      <span>{{ page.date | date_to_long_string }}</span>
-    </div>
+    <ul class="list-inline">
+      {% if author %}
+        <li>
+          <a href="https://twitter.com/{{ author.twitter }}" target="_blank">
+            <span class="label label-success">{{ author.name }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+      <li>
+        <div class="date">{{ page.date | date_to_long_string }}</div>
+      </li>
+    </ul>
+
     <div class="content">
       {{ content }}
     </div>

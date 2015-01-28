@@ -4,7 +4,7 @@ title: "Continuous Integration with Rails, Ember CLI, and CircleCI"
 description: "How to set up continuous integration for a Rails and Ember CLI application."
 category:
 tags: [rails, ember-cli, CircleCI, continuous-integration]
-author: Eric Kelly
+author: eric_kelly
 ---
 {% include JB/setup %}
 

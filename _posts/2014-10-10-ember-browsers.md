@@ -5,7 +5,7 @@ tagline: ""
 tags : [ember]
 title: "What browsers does Ember.js support?"
 description: Ember.js browser support
-author: Mike Munroe
+author: mike_munroe
 ---
 {% include JB/setup %}
 
