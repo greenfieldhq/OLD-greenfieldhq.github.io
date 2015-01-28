@@ -5,7 +5,7 @@ tagline: ""
 tags : [founder]
 title: "Founder Series: The Code for Your Application"
 description: What is source control and why is it important?
-author: Mike Munroe
+author: mike_munroe
 ---
 {% include JB/setup %}
 

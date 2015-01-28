@@ -5,7 +5,7 @@ tagline: ""
 tags : [ember]
 title: "Render Data from Multiple Models in One View in Ember"
 description: Directions for showing data from multiple models inside of one view.
-author: Mike Munroe
+author: mike_munroe
 ---
 {% include JB/setup %}
 

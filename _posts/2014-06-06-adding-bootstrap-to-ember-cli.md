@@ -5,7 +5,7 @@ tagline: ""
 tags : [ember, ember-cli]
 title: "Adding Bootstrap to Ember-CLI"
 description: Directions for adding bootstrap to Ember-CLI.
-author: Mike Munroe
+author: mike_munroe
 ---
 {% include JB/setup %}
 
