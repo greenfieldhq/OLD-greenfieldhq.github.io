@@ -82,7 +82,7 @@ test:
 I recommend checking out the [dotenv][dotenv] and
 [ember-cli-dotenv][ember-cli-dotenv] projects if your application requires the
 use of environment variables for configuration. You can easily set these up on
-the CircleCI through their web interface.
+CircleCI through their web interface.
 
 ## Additional Steps
 
