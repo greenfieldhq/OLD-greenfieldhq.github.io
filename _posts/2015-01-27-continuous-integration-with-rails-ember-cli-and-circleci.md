@@ -14,8 +14,7 @@ integration][continuous-integration] for a single application. When you have
 both a [Rails][rails] and [Ember CLI][ember-cli] application living in single
 repository, some extra configuration is required.
 
-If you just want to see code, check out the example [example
-repository][example-repo].
+If you just want to see code, check out the [example repository][example-repo].
 
 This assumes you're using:
 
@@ -55,11 +54,11 @@ Circle CI][getting-started-with-circle-ci].
 
 ## circle.yml
 
-Since CircleCI won't be able to automatically infer our application's build
+Since CircleCI won't be able to automatically infer what our application's build
 process will be, we need to add some additional instructions to our
 `circle.yml`:
 
-{% highlight yaml %}
+```yaml
 general:
   # Use Circle CI's automatic settings inference for the Rails app
   build_dir: rails
@@ -76,7 +75,7 @@ test:
   # Run the Ember tests after the Rails tests
   post:
     - cd ../ember && ./node_modules/.bin/ember test
-{% endhighlight %}
+```
 
 ## Environment Variables
 
@@ -88,7 +87,7 @@ the CircleCI through their web interface.
 ## Additional Steps
 
 If your build process requires any further configuration, check out the
-[CircleCI Documentation][circle-ci-docs]. They also have a really helpful
+[CircleCI documentation][circle-ci-docs]. They also have a really helpful
 chatroom where you can get easily ask for additional help.
 
 [circle-ci-docs]: https://circleci.com/docs "Circle CI Documentation"
