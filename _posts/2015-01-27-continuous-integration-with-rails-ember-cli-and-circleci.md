@@ -58,7 +58,7 @@ Since CircleCI won't be able to automatically infer what our application's build
 process will be, we need to add some additional instructions to our
 `circle.yml`:
 
-```yaml
+{% highlight yaml %}
 general:
   # Use Circle CI's automatic settings inference for the Rails app
   build_dir: rails
@@ -75,7 +75,7 @@ test:
   # Run the Ember tests after the Rails tests
   post:
     - cd ../ember && ./node_modules/.bin/ember test
-```
+{% endhighlight %}
 
 ## Environment Variables
 
