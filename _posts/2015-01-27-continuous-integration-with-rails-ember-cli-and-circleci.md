@@ -12,13 +12,16 @@ Services like [CircleCI][circle] and [Travis CI][travis] make it really
 straight forward to get set up with [continuous
 integration][continuous-integration] for a single application. When you have
 both a [Rails][rails] and [Ember CLI][ember-cli] application living in single
-repository, it requires a little bit of customization.
+repository, some extra configuration is required.
 
-This assumes that you're using:
+If you just want to see code, check out the example [example
+repository][example-repo].
 
-- CircleCI
-- Rails & RSpec
-- Ember CLI & the default test setup with [ember-cli-qunit][ember-cli-qunit]
+This assumes you're using:
+
+- CircleCI (you can probably do something similar with Travis CI and Codeship)
+- Rails and RSpec
+- Ember CLI's default test setup with [ember-cli-qunit][ember-cli-qunit]
 
 ## The Repository Structure
 
@@ -45,7 +48,16 @@ This assumes that you're using:
     └── vendor
 </pre>
 
+## Getting Started
+
+If you're not already set up with CircleCI, go through [Getting Started with
+Circle CI][getting-started-with-circle-ci].
+
 ## circle.yml
+
+Since CircleCI won't be able to automatically infer our application's build
+process will be, we need to add some additional instructions to our
+`circle.yml`:
 
 {% highlight yaml %}
 general:
@@ -71,13 +83,13 @@ test:
 I recommend checking out the [dotenv][dotenv] and
 [ember-cli-dotenv][ember-cli-dotenv] projects if your application requires the
 use of environment variables for configuration. You can easily set these up on
-the Circle CI through their web interface.
+the CircleCI through their web interface.
 
 ## Additional Steps
 
-If your build process requires any further configuration, check out the [Circle
-CI Documentation][circle-ci-docs]. They also have a really helpful chatroom set
-up where you can get easily ask for additional help.
+If your build process requires any further configuration, check out the
+[CircleCI Documentation][circle-ci-docs]. They also have a really helpful
+chatroom where you can get easily ask for additional help.
 
 [circle-ci-docs]: https://circleci.com/docs "Circle CI Documentation"
 [circle]: https://circleci.com/ "CircleCI"
@@ -86,5 +98,7 @@ up where you can get easily ask for additional help.
 [ember-cli-dotenv]: https://github.com/fivetanley/ember-cli-dotenv "Ember CLI dotenv"
 [ember-cli-qunit]: https://github.com/ember-cli/ember-cli-qunit "Ember CLI QUnit"
 [ember-cli]: https://github.com/ember-cli/ember-cli "Ember CLI"
+[example-repo]: https://github.com/greenfieldhq/ember-cli-rails-continuous-integration-example "Example Repository"
+[getting-started-with-circle-ci]: https://circleci.com/docs/getting-started "Getting Started with Circle CI"
 [rails]: http://rubyonrails.org/ "Ruby on Rails"
 [travis]: https://travis-ci.org/ "Travis CI"
