@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Save a parent model and all children with Rails API and Ember CLI"
-description: "How to Save a parent model and all of its children at the same time with Rails API and Ember CLI"
+title: "Save a parent model and all children with Ember CLI and Rails"
+description: "How to Save a parent model and all of its children at the same time with Ember CLI and Rails"
 category:
 tags: [rails, ember-cli, ember-data]
 author: jodi_detch
@@ -26,11 +26,11 @@ In this case, a grocery list is the parent model and list items are its children
 
 <img src="http://i.imgur.com/awZupYJ.png" alt="grocery list screenshot"> 
 
-## So, how does it work?
+# So, how does it work?
 
 Check out these key files of interest:
 
-### The Controller
+## The Controller
 
 In order to dynamically add items (i.e. new *item name* and *item quantity* fields only show up when a user specifically clicks the *add item* button on the page), I created an `addItem` action in the `grocery-lists/new` controller. Each time the button is clicked, a new list item is created and subsequently pushed into an array of items associated with a given grocery list. The various objects exist at this point, but with *null* ids.
 
@@ -42,14 +42,14 @@ In order to dynamically add items (i.e. new *item name* and *item quantity* fiel
       actions: {
         addItem: function() {
           var comment = this.store.createRecord('item');
-          var grocery_list = this.get('model');
+          var groceryList = this.get('model');
       
-          grocery_list.get('items').pushObject(item);              
+          groceryList.get('items').pushObject(item);              
         }
       }
     });
 
-### The Template  
+## The Template  
   
 As you can see below, the `addItem` action in the controller is linked to the same action on the template:
 
@@ -59,20 +59,20 @@ As you can see below, the `addItem` action in the controller is linked to the sa
 
     <p>
       <label for="listName">List name:</label> 
-      {{input id="listName" value=model.name}}
+      {% raw %}{{input id="listName" value=model.name}}{% endraw %}
 
       <label for="listDescription">List description:</label>
-      {{input id="listDescription" value=model.description}}
+      {% raw %}{{input id="listDescription" value=model.description}}{% endraw %}
     </p>
 
     {{#each item in model.items}}
-      <p>
-        <label>Item name:</label> 
-        {{input type="text" value=item.name}}
+    <p>
+      <label>Item name:</label> 
+      {% raw %}{{input type="text" value=item.name}}{% endraw %}
 
-        <label>Item quantity:</label> 
-        {{input type="text" value=item.quantity}}
-     </p>
+      <label>Item quantity:</label> 
+      {% raw %}{{input type="text" value=item.quantity}}{% endraw %}
+    </p>
     {{/each}}
 
     <p><button {{action 'addItem'}}>Add item</button></p>
@@ -81,11 +81,11 @@ As you can see below, the `addItem` action in the controller is linked to the sa
 
 Please note, I did not use `label for`s or `input id`s for *item name* and *item quantity* in the code above because an error gets thrown by Ember when more than one list item is added. This occurs because Ember tries (and fails) to register a view with an id that is already in use on the page.
 
-### The Route
+## The Route
 
 At this point, we've done a good amount of set up, but how do we get the grocery list and all of its items to persist properly to the database when a user clicks *save*?
 
-##### METHOD 1 
+### METHOD 1 
 
 In the `save` action of the `grocery-lists/new` route, you will see that the model (the grocery list) is saved first, with a series of `then` functions chained after it. What are all of those functions doing? Once the grocery list is saved with `model.save()`, the grocery list object gets passed into the next function. We then obtain its array of list items using `get`, pass that array into the next function and then loop over and save each item in the array using `forEach`.
 
@@ -109,8 +109,8 @@ The chain of `then`s is made possible because the relationships are asynchronous
         var model = this.get('controller.model');
 
         var _this = this;
-        model.save().then(function(grocery_list) {
-          grocery_list.get('items').then(function(items){
+        model.save().then(function(groceryList) {
+          groceryList.get('items').then(function(items){
             items.forEach(function(item){
               item.save();
             });
@@ -122,7 +122,7 @@ The chain of `then`s is made possible because the relationships are asynchronous
 
     });
     
-##### METHOD 2 - Refactor using Ember.RSVP
+### METHOD 2 - Refactor using Ember.RSVP
 
 In method 1, the transition to the index page takes place before all of the saves finish. In this refactor, I used the Ember RSVP class to execute all of the saves and *then* transition. I also included an error message to log to the console in case one of the saves fails for some reason.
 
@@ -147,8 +147,8 @@ You can read more about the Ember RSVP class in the [documentation](http://ember
         var _this = this;
         var promises = [];
 
-        model.save().then(function(grocery_list){
-          grocery_list.get('items').forEach(function(item) {
+        model.save().then(function(groceryList){
+          groceryList.get('items').forEach(function(item) {
             promises.push(item.save());
           });
             return Ember.RSVP.all(promises).then(function () {
