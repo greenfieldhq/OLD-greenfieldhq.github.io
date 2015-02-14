@@ -20,7 +20,7 @@ For this discussion, I have created a sample application called "Shopmaster," a 
 
 The focus of this post centers on saving a *new* record and its children, so I purposely left out additional CRUD functionality like editing and deleting, perhaps for a follow-up post.
 
-You can check out the Shopmaster repo [here](https://github.com/jdetch/Shopmaster).
+You can check out the Shopmaster repo <a href="https://github.com/jdetch/Shopmaster" target="_blank">here</a>.
 
 In this case, a grocery list is the parent model and list items are its children. For ease of use, I wanted the user to be able to create a new grocery list, add however many items they want to that list and then save everything together at the same time. See example screenshot below:
 
@@ -126,7 +126,7 @@ The chain of `then`s is made possible because the relationships are asynchronous
 
 In method 1, the transition to the index page takes place before all of the saves finish. In this refactor, I used the Ember RSVP class to execute all of the saves and *then* transition. I also included an error message to log to the console in case one of the saves fails for some reason.
 
-You can read more about the Ember RSVP class in the [documentation](http://emberjs.com/api/classes/RSVP.html).
+You can read more about the Ember RSVP class in the <a href="http://emberjs.com/api/classes/RSVP.html" target="_blank">documentation</a>.
   
     // Shopmaster/frontend/app/routes/grocery-lists/new.js
   
@@ -177,7 +177,7 @@ The bottom line is that the parent model must be saved first so that it will be 
 
 ## Contact
 
-I hope you've enjoyed this post and found it helpful. If you have any questions or comments, my contact information is available on [GitHub](http://github.com/jdetch).
+I hope you've enjoyed this post and found it helpful. If you have any questions or comments, my contact information is available on <a href="http://github.com/jdetch" target="_blank">GitHub</a>.
 
 
 
