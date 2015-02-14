@@ -65,7 +65,7 @@ As you can see below, the `addItem` action in the controller is linked to the sa
       {% raw %}{{input id="listDescription" value=model.description}}{% endraw %}
     </p>
 
-    {{#each item in model.items}}
+    {% raw %}{{#each item in model.items}}{% endraw %}
     <p>
       <label>Item name:</label> 
       {% raw %}{{input type="text" value=item.name}}{% endraw %}
@@ -73,11 +73,11 @@ As you can see below, the `addItem` action in the controller is linked to the sa
       <label>Item quantity:</label> 
       {% raw %}{{input type="text" value=item.quantity}}{% endraw %}
     </p>
-    {{/each}}
+    {% raw %}{{/each}}{% endraw %}
 
-    <p><button {{action 'addItem'}}>Add item</button></p>
+    <p><button{% raw %}{{action 'addItem'}}{% endraw %}>Add item</button></p>
 
-    <p><button {{action 'save'}}>Save list</button></p>
+    <p><button{% raw %}{{action 'save'}}{% endraw %}>Save list</button></p>
 
 Please note, I did not use `label for`s or `input id`s for *item name* and *item quantity* in the code above because an error gets thrown by Ember when more than one list item is added. This occurs because Ember tries (and fails) to register a view with an id that is already in use on the page.
 
