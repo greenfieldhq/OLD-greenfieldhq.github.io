@@ -169,11 +169,11 @@ The bottom line is that the parent model must be saved first so that it will be 
 * On the Rails side, make sure you are passing in `id` as an attribute in each model's respective serializer. 
 * Also on the Rails side, be sure to include the foreign key id as a permitted param in the controller of the child model. In the example above, that means I included `grocery_list_id` as a permitted param in the `item_params` method in the `ItemsController`.
 * Be aware of your software versions. Specifically, I ran into some issues with persisting my data properly before upgrading ember-data from v1.0.0-beta.12 to v1.0.0-beta.14.1.
-* Versions in use as of this writing:
-  * Ember: 1.8.1
-  * Ember Data: 1.0.0-beta.14.1  
-  * Ember CLI: 0.1.13
-  * Rails: 4.1.6
+  * Versions in use in the <a href="https://github.com/jdetch/Shopmaster" target="_blank">Shopmaster repo</a> as of this writing:
+    * Ember: 1.9.1
+    * Ember Data: 1.0.0-beta.15  
+    * Ember CLI: 0.1.15
+    * Rails: 4.1.6
 
 ## Contact
 
