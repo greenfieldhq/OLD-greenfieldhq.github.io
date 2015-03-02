@@ -42,10 +42,10 @@ We have office space in the [WeWork Fort Point](https://www.wework.com/locations
 
 * 9 paid holidays
 * 3 weeks paid vacation 
-* year end paid break
-* competitive medical and dental benefits fully funded by Greenfield
-* we bill clients weekly for a 4 day work week, so Friday's are devoted to personal skill development and exploration
-* budget for new equipment provided
+* Year end paid break
+* Competitive medical and dental benefits fully funded by Greenfield
+* We bill clients weekly for a 4 day work week, so Friday's are devoted to personal skill development and exploration
+* Budget for new equipment provided
 
 
 
