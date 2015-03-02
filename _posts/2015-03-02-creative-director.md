@@ -15,7 +15,7 @@ We are looking for an experienced UX designer to join us at Greenfield. This per
 
 * This is a senior role, so we will expect to see evidence of experience commensurate with that level.
 * All of our other employees currently work within our Boston office, so we want this person in house with the rest of us. Sorry, no remote work at this time.
-* Willingness to work closely with the developers that will be bring your ideas to life.
+* Willingness to work closely with the developers that will bring your ideas to life.
 
 ## Nice-to-Haves
 
