@@ -23,7 +23,8 @@ We are looking for an experienced UX designer to join us at Greenfield. This per
 
 ## How to Apply
 
-* [Email us](mailto:jobs@greenfieldhq.com) the following:
+[Email us](mailto:jobs@greenfieldhq.com) the following:
+
 * A link to your online portfolio, or PDF if necessary, is required. Applications without a portfolio will not be considered.
 * If parts of your portfolio involved group work, please explain your specific role in the project.
 * Briefly explain in your email why you are a particularly excellent candidate for this job and what parts of your portfolio are especially relevant.
@@ -43,6 +44,7 @@ We have office space in the [WeWork Fort Point](https://www.wework.com/locations
 * year end paid break
 * competitive medical and dental benefits fully funded by Greenfield
 * we bill clients weekly for a 4 day work week, so Friday's are devoted to personal skill development and exploration
+* budget for new equipment provided
 
 
 
