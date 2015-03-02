@@ -27,12 +27,14 @@ We are looking for an experienced UX designer to join us at Greenfield. This per
 * A link to your online portfolio, or PDF if necessary, is required. Applications without a portfolio will not be considered.
 * If parts of your portfolio involved group work, please explain your specific role in the project.
 * Briefly explain in your email why you are a particularly excellent candidate for this job and what parts of your portfolio are especially relevant.
-* We will respond to all emails within a few days to confirm receipt and we’ll follow up with you if we’d like to get more detail. 
+* We will respond to all emails within a few days to confirm receipt and we’ll follow up with you if we’d like to get more details. 
 
 ## Info about Greenfield
 
 
-Greenfield is a small software consulting firm based in Boston, MA, founded in April of 2014 by two co-founders that have been working together in the industry since 1999. We currently have 4 full time developers working with us. You can see the team at [greenfieldhq.com/#/?anchor=team](http://greenfieldhq.com/#/?anchor=team)
+Greenfield is a small software consulting firm based in Boston, MA, founded in April of 2014 by two co-founders that have been working together in the industry since 1999. We currently have 4 full time developers working with us. You can see the team at [greenfieldhq.com/#/?anchor=team](http://greenfieldhq.com/#/?anchor=team).
+
+All of our client work has been completed utilizing the [Ember.js](http://emberjs.com/) framework. We are pushing the boundaries of what can be done with Ember.js and are looking forward to utilizing our creative director to help us devise new user experiences, pushing the boundaries even further. 
 
 We have office space in the [WeWork Fort Point](https://www.wework.com/locations/boston/fort-point) location and offer the following benefits.
 
@@ -40,6 +42,7 @@ We have office space in the [WeWork Fort Point](https://www.wework.com/locations
 * 3 weeks paid vacation 
 * year end paid break
 * competitive medical and dental benefits fully funded by Greenfield
+* we bill clients weekly for a 4 day work week, so Friday's are devoted to personal skill development and exploration
 
 
 
