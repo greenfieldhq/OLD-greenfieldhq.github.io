@@ -41,7 +41,7 @@ In order to dynamically add items (i.e. new *item name* and *item quantity* fiel
     export default Ember.Controller.extend({
       actions: {
         addItem: function() {
-          var comment = this.store.createRecord('item');
+          var item = this.store.createRecord('item');
           var groceryList = this.get('model');
       
           groceryList.get('items').pushObject(item);              
