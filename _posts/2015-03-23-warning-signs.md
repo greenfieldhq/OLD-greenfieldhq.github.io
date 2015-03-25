@@ -9,11 +9,12 @@ author: mike_munroe
 ---
 {% include JB/setup %}
 
-For some development teams, the following things might be taken for granted, but
-if any of the following are issues within your team, you should investigate ways
-to remedy the shortfall.
+For some development teams, the items on the list below might be taken for
+granted, but if any of the following are issues within your team, you should
+investigate ways to remedy the shortfall.
 
 ###1. Your team does not use source control
+
 Source control, also referred to as version control, is a system to track
 on-going changes to the source code for your application. Many teams are
 utilizing
@@ -21,7 +22,7 @@ utilizing
 another common source control system is [SVN](https://subversion.apache.org/).
 Utilizing a source control system allows for your developers to see the
 revision history for changes, and who made those changes. Depending on the
-souce control system, there are also a lot of tools for managing development
+source control system, there are also a lot of tools for managing development
 efforts moving in parallel.
 
 We utilize Git, hosted on [GitHub](https://github.com/), for all of our client
@@ -31,12 +32,12 @@ committed to source control and we uses pull requests to review every commit
 made to a client project.
 
 ###2. Your database is not backed up regularly
-We all know how important back ups can be, but we never realize how important
-they are until one is needed. All of your important development assets should be
-getting backed up regularly, but backing up the database for your application is
+
+We all know how important backups can be, but we never realize how important
+they are until one is needed. Backing up the database for your application is
 of the utmost importance. Not having a regular back up occurring is a sign of
 organization missing within your team. There are a lot of tools that can be
-utilized for completing back ups on a schedule, but often a
+utilized for completing backups on a schedule, but often a
 [cron job](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=cron%20job)
 is enough to run a back up task and place the back up file in a secure location
 on a regularly scheduled basis.
@@ -47,6 +48,7 @@ we set up. Most clients we serve are hosted on a cloud based service, such as
 those have facilities for making regular backups easy to schedule.
 
 ###3. Your application often takes seconds to load
+
 In general, your users are expecting to see pages load in under 1 second. Even
 if the application is not delivered within a browser, plan for similar
 expectations. Performance issues are always going to be a drag for your users.
@@ -73,17 +75,19 @@ output to see how traffic is behaving and also utilize tools such as
 depth information for optimizing queries.
 
 ###4. You have no automated tests
-Discussions around testing can get heated at times depending on who is involved.
-Some believe you need a certain quantifiable amount of automated test coverage
-to be thought of as a well tested application. I don't want to get caught in an
-argument over how much and what should be tested because testing strategies can
-change from team to team depending on the application being developed and its
-infrastructure, but I am arguing that if you have no automated testing coverage,
-especially for core areas of your product, it's time to bring the development
-team together to investigate and set up your testing strategy. If you have a
-team of QA engineers manual testing things, that's great. Try to convince a few
-of them to bite off doing some programming and getting you some automated
-coverage.
+
+Automated testing provides a way of testing that the critical parts of your
+application work as they are intended to. It can reduce the likelihood
+of bugs, improve the quality of the codebase, and improve the productivity of
+your development team (less time bugfixing). It requires buy in and some upfront
+work from your development team however, and the ideal amount to test is not
+widely agreed upon across all teams.
+
+If you have no automated testing coverage, especially for core areas of your
+product, it's time to bring the development team together to investigate and
+set up your testing strategy. If you have a team of QA engineers manual testing
+things, that's great. Try to convince a few of them to bite off doing some
+programming and getting you some automated coverage.
 
 We have standardized on a suite of tests across the backend and our front end.
 For the backend test suite, we utilize [RSpec](http://rspec.info/) and for the
@@ -91,6 +95,7 @@ front end we utilize the QUnit testing framework built in to
 [Ember CLI](http://www.ember-cli.com/).
 
 ###5. You have no confidence in your release schedule
+
 Your last 3 releases were behind schedule. You're currently working on your next
 release, but you can't tell if you are on schedule or behind. You're basing the
 status of the release on the feel of how things are going. If you really want
@@ -109,3 +114,7 @@ Greenfield is a Ember.js and Rails consulting firm based in Boston, MA, but we
 have a lot of experience with managing these type of problems. If you need help
 investigating solutions for these issues within your team, please
 [reach out](http://greenfieldhq.com/#/?anchor=contact).
+
+Thanks to [@faizaanshamsi](https://twitter.com/faizaanshamsi),
+[@heroiceric](https://twitter.com/heroiceric), & [@davekaro](https://twitter.com/davekaro)
+for feedback on this post.
