@@ -40,6 +40,7 @@ against documents
 *  tweak relevancy - change the weighting of search criteria to make some more
 relevant than others
 *  multiple language support - French, German, Spanish, etc.
+*  percolator - 'reverse' searching
 *  aggregations - ask sophisticated questions about our data in near real time
 *  geolocation - support location information
 
