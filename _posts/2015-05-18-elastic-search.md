@@ -9,6 +9,10 @@ author: mike_munroe
 ---
 {% include JB/setup %}
 
+
+![marbles]({{ BASE_PATH }}/assets/images/es/marbles.jpg)
+
+
 Do you have an application or set of applications that require searching
 capabilities, has a large data set and you want to do some analysis on that
 data? If so, you should check out Elasticsearch. I'm going to outline 3 reasons
@@ -78,3 +82,5 @@ Greenfield is a Ember.js and Rails consulting firm based in Boston, MA, and we
 have been doing a lot of work with Elasticsearch. If you think Elasticsearch
 could help your product, please
 [reach out](http://greenfieldhq.com/#/?anchor=contact).
+
+photo credit: <a href="http://www.flickr.com/photos/86775868@N03/9100937592">Marbles</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by/2.0/">(license)</a>
