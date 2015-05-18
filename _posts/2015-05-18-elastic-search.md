@@ -11,7 +11,7 @@ author: mike_munroe
 
 Do you have an application or set of applications that require searching
 capabilities, has a large data set and you want to do some analysis on that
-data? If so, you should chech out Elasticsearch. I'm going to outline 3 reasons
+data? If so, you should check out Elasticsearch. I'm going to outline 3 reasons
 why.
 
 #### Elasticsearch supports many programming languages.
@@ -24,12 +24,13 @@ product requries a lot of statistical analysis, you might work with
 languages through clients built for each language. You can find a list of
 supported clients on the
 [Elastic website](https://www.elastic.co/guide/en/elasticsearch/client/community/current/clients.html).
-These clients will make it easier to integrate Elasticsearch with the
-programming language used to develop your application.
+In general, Elasticsearch will work with any language that allows you to send
+GET and POST requests, but these clients above will make it easier to
+integrate Elasticsearch.
 
 #### Elasticsearch supports many features.
-Following support of many programming languages, Elasticsearch supports many
-different features that might be needed within a product such as:
+Elasticsearch supports many different features that might be needed within a
+product such as:
 
 *  full-text search - basic search matching words against documents
 *  multifield matching - advanced search matching multiple different searches
@@ -52,7 +53,7 @@ We have been using Elasticsearch on a few different client projects and have
 been very impressed with its performance.
 
 In one instance, Elasticsearch is being utilized for full-text search,
-multifield matching, and using its [percolator](https://www.elastic.co/guide/en/elasticsearch/reference/1.3/search-percolate.html)
+multifield matching, and using its [percolator](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-percolate.html)
 against millions of documents and it is instantaneous. Percolator is a larger
 subject than covered in this post that we are planning to discuss in the future,
 but for now, think of it as a way to implement saved searching functionality.
