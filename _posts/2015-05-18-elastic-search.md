@@ -28,7 +28,7 @@ These clients will make it easier to integrate Elasticsearch with the
 programming language used to develop your application.
 
 #### Elasticsearch supports many features.
-Following support of many programming languages, Elasticsearch support many
+Following support of many programming languages, Elasticsearch supports many
 different features that might be needed within a product such as:
 
 *  full-text search - basic search matching words against documents
@@ -40,8 +40,8 @@ against documents
 *  tweak relevancy - change the weighting of search criteria to make some more
 relevant than others
 *  multiple language support - French, German, Spanish, etc.
-*  Aggregations - ask sophisticated questions about our data in near real time
-*  Geolocation - support location information
+*  aggregations - ask sophisticated questions about our data in near real time
+*  geolocation - support location information
 
 We have used it for many of these already and have been very happy with that
 choice.
