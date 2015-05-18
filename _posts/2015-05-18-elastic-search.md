@@ -53,7 +53,7 @@ been very impressed with its performance.
 In one instance, Elasticsearch is being utilized for full-text search,
 multifield matching, and using its [percolator](https://www.elastic.co/guide/en/elasticsearch/reference/1.3/search-percolate.html)
 against millions of documents and it is instantaneous. Percolator is a larger
-subject than covered in this post that we are planning to discuss in a future,
+subject than covered in this post that we are planning to discuss in the future,
 but for now, think of it as a way to implement saved searching functionality.
 A user can search on something, save that search, and when a new document is
 created, percolator functionality in Elasticsearch can tell you if the new
