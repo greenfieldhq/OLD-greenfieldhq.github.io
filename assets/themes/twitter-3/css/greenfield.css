@@ -575,6 +575,9 @@ blockquote cite {
   margin-right: -18.5px;
   border-radius: 50%;
 }
+#mc_embed_signup form {
+  padding:10px 0 0 0 !important;
+}
 section {
   position: relative;
   z-index: 7;
