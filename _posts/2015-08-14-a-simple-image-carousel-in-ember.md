@@ -71,6 +71,64 @@ Run `npm install && bower install` to make sure all our dependencies are install
 
 Ok, we've got our Ember app ready and its base dependencies installed.
 
+Let's update our `app/router.js` file to handle the profile paths we'll care about:
+
+```javascript
+//app/router.js
+
+import Ember from 'ember';
+import config from './config/environment';
+
+var Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('profiles');
+  this.route('profile', { path: '/profiles/:profileId' });
+});
+
+export default Router;
+```
+
+Now let's update the `mirage` folder so there is a fake "backend" for our app:
+
+```javascript
+//app/mirage/config.js
+
+export default function() {
+  this.get('/profiles');
+  this.get('/profiles/:id');
+}
+```
+
+A factory for the profile:
+
+```javascript
+//app/mirage/factories/profile.js (renamed default contact.js)
+import Mirage/*, {faker} */ from 'ember-cli-mirage';
+
+export default Mirage.Factory.extend({
+  name: faker.list.cycle('Fry', 'Bender', 'Leela', 'Zoidberg'),
+  imageUrl: faker.list.cycle(
+    'http://i.imgur.com/RYSCYTy.jpg',
+    'http://i.imgur.com/n0LAiay.jpg',
+    'http://i.imgur.com/0j3cEnX.jpg',
+    'http://i.imgur.com/P3GptOE.jpg'
+  )
+});
+```
+
+Now we'll have our Mirage "server" create a list of four profiles for us to interact with:
+
+```javascript
+//app/mirage/scenarios/default.js
+
+export default function(server) {
+  server.createList('profile', 4);
+}
+```
+
 - code
 
 ## While we're at it, let's write some tests for this
