@@ -69,6 +69,8 @@ ember install ember-cli-mirage
 
 Run `npm install && bower install` to make sure all our dependencies are installed.
 
+We're going to be using the [Pod](http://www.programwitherik.com/ember-pods/) paradigm, so add the following key-value pair to your `.ember-cli` file: `"usePods": true`
+
 Ok, we've got our Ember app ready and its base dependencies installed.
 
 Let's update our `app/router.js` file to handle the profile paths we'll care about:
@@ -129,7 +131,56 @@ export default function(server) {
 }
 ```
 
-- code
+Let's setup a model for the profile now. Create a `app/profile` folder and `touch model.js` in there:
+
+```javascript
+//app/profile/model.js
+
+import DS from 'ember-data';
+
+const { attr } = DS;
+
+export default DS.Model.extend({
+  name: attr('string'),
+  imageUrl: attr('string')
+});
+```
+
+Now, let's create a `app/profiles` folder and `route.js` and `template.hbs` files in there to handle the index page for profiles:
+
+```javascript
+//app/profiles/route.js
+
+import Ember from 'ember';
+
+const { Route } = Ember;
+
+export default Route.extend({
+  model() {
+    return this.store.findAll('profile');
+  }
+});
+
+//app/profiles/template.hbs
+
+<ul>
+  {{#each model as |profile|}}
+    <div>
+      <img src={{profile.imageUrl}} alt="">
+      <div>{{profile.name}}</div>
+    </div>
+  {{/each}}
+</ul>
+```
+
+Now, if we navigate to `localhost:4200/profiles`, we should see something like this:
+
+![alt](http://imgur.com/83C8DNz)
+
+Great, so we have our profiles on our index page and now we want to turn them into image carousels. So let's get started.
+
+- continued
+
 
 ## While we're at it, let's write some tests for this
 
