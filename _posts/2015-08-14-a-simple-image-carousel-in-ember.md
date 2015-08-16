@@ -175,7 +175,7 @@ export default Route.extend({
 
 Now, if we navigate to `localhost:4200/profiles`, we should see something like this:
 
-![alt](http://imgur.com/83C8DNz)
+![alt](http://i.imgur.com/83C8DNz.png)
 
 Great, so we have our profiles on our index page and now we want to turn them into image carousels. So let's get started.
 
