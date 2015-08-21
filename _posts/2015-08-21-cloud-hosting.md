@@ -34,8 +34,9 @@ This nugget, along with those same IT leaders' increased confidence in their
 ability to satisfy their businesses' demands in the coming year, underscores the
 impact of increased adoption of cloud hosting solutions. As more of your
 competition realizes the benefits of transitioning away from legacy internal
-hosting solutions, there is the very real danger that your business is being
-left behind by allowing inertia to dictate how you handle your IT requirements.
+hosting solutions, there is the very real danger that you are allowing inertia
+to dictate how you handle your IT requirements. **Your business is being left
+behind.**
 
 Why is the world, including your competition, moving to the cloud? Four reasons.
 
@@ -66,9 +67,11 @@ likely is something along the lines of:
 
 Cloud hosting providers such as [Amazon Web Services](https://aws.amazon.com/)
 (AWS) make it easier than ever to "bake in" redundancy and scalability. With an
-expert hand to help you implement the correct mix of features - everything from
-CloudFormation to Relational Database Service to Elastic Load Balancer -
-right-sizing is dynamic, instant, and grounded in _the needs of your business_.
+expert [cloud hosting service provider](http://greenfieldhq.com/#contact)
+on hand to help you implement the correct
+mix of features - everything from CloudFormation to Relational Database Service
+to Elastic Load Balancer - right-sizing is dynamic, instant, and grounded in the
+_needs of your business_.
 
 ## Cloud hosting gets you to market faster
 A typical IT procurement cycle is lengthy. Spec'ing out an order for internal
