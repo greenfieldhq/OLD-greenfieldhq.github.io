@@ -2,7 +2,7 @@
 layout: post
 category :
 tagline: ""
-tags :
+tags : AWS
 title: "Boost Your Pageload Speed in Under 10 Minutes"
 description: Deploying Amazon Web Service's Cloudfront Content Delivery System improves your site's pageload speed - and your organic search performance.
 author: greenfield
@@ -27,7 +27,7 @@ Various tactics - everything from [keyword stuffing](https://support.google.com/
 
 ## Is SEO only about content?
 
-Content is king. But once you have the content that your visitors are looking for, what's next? There is another side to SEO. Modern SEO is near-synonomous with Google, and Google has made it clear that pageload speed is a significant ranking factor. 
+Content is king. But once you have the content that your visitors are looking for, what's next? There is another side to SEO. Modern SEO is near-synonymous with Google, and Google has made it clear that pageload speed is a significant ranking factor. 
 
 How quickly your website loads depends on a host of factors. Some of those factors occur at the level of your website - everything from whether or not your site is [mobile-device friendly](http://googlewebmastercentral.blogspot.com/2015/04/faqs-april-21st-mobile-friendly.html) to the titles of image files included in your blog posts to [how well organized are your CSS files](http://blog.greenfieldhq.com/2014/08/29/front-back/). These and others relating to your [hosting environment](http://blog.greenfieldhq.com/2015/08/21/cloud-hosting/) all are loosely grouped together under the umbrella of _technical SEO_. And this is where a modern and optimized content delivery network, or CDN, can be a huge boon. 
 
@@ -35,11 +35,11 @@ How quickly your website loads depends on a host of factors. Some of those facto
 
 As pageload speed is better understood, we've been able to break it down into its individual components. More and more SEO practitioners now are espousing the importance of being able to serve up your website quickly and seamlessly. Here are two of ranking factors that you can improve by optimizing your hosting solution.
 
-### Time To First Byte
+## Time To First Byte
 
-Google considers _Time To First Byte_ (TTFB) - the time it takes for your computer to send a request over the internet and to begin receiving the requested webpage or data back to your browser - as a signal of a smooth and pleasant user experience for the searcher. In an impactful study investigating the impact of page load speed and other technical SEO aspects published on Moz in 2013:
+Google considers _Time To First Byte_ (TTFB) - the time it takes for your computer to send a request over the internet and to begin receiving the requested web page or data back to your browser - as a signal of a smooth and pleasant user experience for the searcher. In an impactful study investigating the impact of page load speed and other technical SEO aspects published on Moz in 2013:
 
-> ...a clear correlation was identified between decreasing search rank and increassing time to first byte. Sites that have a lower TTFB respond faster and have higher search result rankings than slower sites with a higher TTFB. Of all the data we captured the TTFB metric had the strongest correlation effect, implying a high likelihood of some level of influence on search ranking.
+> ...a clear correlation was identified between decreasing search rank and increasing time to first byte. Sites that have a lower TTFB respond faster and have higher search result rankings than slower sites with a higher TTFB. Of all the data we captured the TTFB metric had the strongest correlation effect, implying a high likelihood of some level of influence on search ranking.
 
 _[How Website Speed Actually Impacts Search Ranking](https://moz.com/blog/how-website-speed-actually-impacts-search-ranking)_
 
@@ -49,11 +49,11 @@ CloudFront - and other content delivery networks - utilize a global distributed 
 
 _(Image credit to [How CloudFront Delivers Content](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html).)_
 
-### Leveraging browser caching
+## Leveraging browser caching
 
-By allowing you to define the period of time for which you want a resource - whether a single image file or an entire webpage - to be considered "current", CloudFront allows you to more fully leverage browser caching to quickly and seamlessly deliver your webpage to visitors. 
+By allowing you to define the period of time for which you want a resource - whether a single image file or your stylesheet - to be considered "current", CloudFront allows you to more fully leverage browser caching to quickly and seamlessly deliver your webpage to visitors. 
 
-It does so by, first, routing the user to the nearest edge location and, second, checking that edge location's cache for a current version of the requested files. If the version available is still consisdered current, it's instantly served up to the visitor; if the cached version is expired, CloudFront sends a request to your origin server for the newest version, serves that file up, and then replaces the expired version available at the edge location. 
+It does so by, first, routing the user to the nearest edge location and, second, checking that edge location's cache for a current version of the requested files. If the version available is still considered current, it's instantly served up to the visitor; if the cached version is expired, CloudFront sends a request to your origin server for the newest version, serves that file up, and then replaces the expired version available at the edge location. 
 
 By selectively extending the expiration dates for certain files - including your site's CSS files, images, and other objects that are not frequently updated - it's possible to significantly reduce the frequency with which CloudFront has to request updated versions for an edge location. The end result is a faster, more seamless experience for your users and, going off of Google's stated preferences around pageload speed and SEO, improved search engine rankings. 
 
