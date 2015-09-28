@@ -9,15 +9,15 @@ author: greenfield
 ---
 {% include JB/setup %}
 
-Search Engine Optimization, or SEO, is a huge topic that encompasses a wide range of potential actions. An effective SEO campaign will leave you with a fast-loading site that Google and other search engines can readily understand. The better a search engine understands the relevance of your content to a specific search query, the more likely your site is to rank highly. 
+Search Engine Optimization, or SEO, is a huge topic that encompasses a wide range of potential actions. An effective SEO campaign will leave you with a fast-loading site that Google and other search engines can readily understand. The better a search engine understands the relevance of your content to a specific search query, the more likely your site is to rank highly.
 
-Any digital marketer worth their salt will tell you, the astronomical ROI on securing top-3 search ranking results for your most important keywords make it a compelling investment. In fact, moving from page 2 or lower in the search results onto page 1 can be as impactful to your website as can improving from spots 6-10 to a top-5 position, and then again as improving to the top 3. 
+Any digital marketer worth their salt will tell you, the astronomical ROI on securing top-3 search ranking results for your most important keywords make it a compelling investment. In fact, moving from page 2 or lower in the search results onto page 1 can be as impactful to your website as can improving from spots 6-10 to a top-5 position, and then again as improving to the top 3.
 
-![CTR by SERP position]({{ BASE_PATH }}/assets/images/aws-cloudfront/ctr-by-serp-position.png)
+![CTR by SERP position]({{ BASE_PATH }}/assets/images/aws-cloudfront/ctr-by-serp-position.PNG)
 
 _(Image credit to [Google Organic Click-Through Rates in 2014](https://moz.com/blog/google-organic-click-through-rates-in-2014).)_
 
-Not only do **page 1 results garner over 70% of all clicks** (!), those in the **top 5 account for over 67%** (!!) and the **top 3, over 55%** (!!!). It seems safe to suggest that improving your search engine performance is key to increasing your organic traffic. 
+Not only do **page 1 results garner over 70% of all clicks** (!), those in the **top 5 account for over 67%** (!!) and the **top 3, over 55%** (!!!). It seems safe to suggest that improving your search engine performance is key to increasing your organic traffic.
 
 ## CloudfFront and SEO
 
@@ -27,9 +27,9 @@ Various tactics - everything from [keyword stuffing](https://support.google.com/
 
 ## Is SEO only about content?
 
-Content is king. But once you have the content that your visitors are looking for, what's next? There is another side to SEO. Modern SEO is near-synonymous with Google, and Google has made it clear that pageload speed is a significant ranking factor. 
+Content is king. But once you have the content that your visitors are looking for, what's next? There is another side to SEO. Modern SEO is near-synonymous with Google, and Google has made it clear that pageload speed is a significant ranking factor.
 
-How quickly your website loads depends on a host of factors. Some of those factors occur at the level of your website - everything from whether or not your site is [mobile-device friendly](http://googlewebmastercentral.blogspot.com/2015/04/faqs-april-21st-mobile-friendly.html) to the titles of image files included in your blog posts to [how well organized are your CSS files](http://blog.greenfieldhq.com/2014/08/29/front-back/). These and others relating to your [hosting environment](http://blog.greenfieldhq.com/2015/08/21/cloud-hosting/) all are loosely grouped together under the umbrella of _technical SEO_. And this is where a modern and optimized content delivery network, or CDN, can be a huge boon. 
+How quickly your website loads depends on a host of factors. Some of those factors occur at the level of your website - everything from whether or not your site is [mobile-device friendly](http://googlewebmastercentral.blogspot.com/2015/04/faqs-april-21st-mobile-friendly.html) to the titles of image files included in your blog posts to [how well organized are your CSS files](http://blog.greenfieldhq.com/2014/08/29/front-back/). These and others relating to your [hosting environment](http://blog.greenfieldhq.com/2015/08/21/cloud-hosting/) all are loosely grouped together under the umbrella of _technical SEO_. And this is where a modern and optimized content delivery network, or CDN, can be a huge boon.
 
 ## Technical SEO and CloudFront CDN
 
@@ -45,18 +45,18 @@ _[How Website Speed Actually Impacts Search Ranking](https://moz.com/blog/how-we
 
 CloudFront - and other content delivery networks - utilize a global distributed network of servers, referred to as [edge locatons](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html). By allowing visitors to access your site via the edge location nearest to them, response time is lowered and the overall user experience is improved.
 
-![Content delivery network diagram]({{ BASE_PATH }}/assets/images/aws-cloudfront/aws-cloudfront-diagram.png)
+![Content delivery network diagram]({{ BASE_PATH }}/assets/images/aws-cloudfront/aws-cloudfront-diagram.PNG)
 
 _(Image credit to [How CloudFront Delivers Content](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html).)_
 
 ## Leveraging browser caching
 
-By allowing you to define the period of time for which you want a resource - whether a single image file or your stylesheet - to be considered "current", CloudFront allows you to more fully leverage browser caching to quickly and seamlessly deliver your webpage to visitors. 
+By allowing you to define the period of time for which you want a resource - whether a single image file or your stylesheet - to be considered "current", CloudFront allows you to more fully leverage browser caching to quickly and seamlessly deliver your webpage to visitors.
 
-It does so by, first, routing the user to the nearest edge location and, second, checking that edge location's cache for a current version of the requested files. If the version available is still considered current, it's instantly served up to the visitor; if the cached version is expired, CloudFront sends a request to your origin server for the newest version, serves that file up, and then replaces the expired version available at the edge location. 
+It does so by, first, routing the user to the nearest edge location and, second, checking that edge location's cache for a current version of the requested files. If the version available is still considered current, it's instantly served up to the visitor; if the cached version is expired, CloudFront sends a request to your origin server for the newest version, serves that file up, and then replaces the expired version available at the edge location.
 
-By selectively extending the expiration dates for certain files - including your site's CSS files, images, and other objects that are not frequently updated - it's possible to significantly reduce the frequency with which CloudFront has to request updated versions for an edge location. The end result is a faster, more seamless experience for your users and, going off of Google's stated preferences around pageload speed and SEO, improved search engine rankings. 
+By selectively extending the expiration dates for certain files - including your site's CSS files, images, and other objects that are not frequently updated - it's possible to significantly reduce the frequency with which CloudFront has to request updated versions for an edge location. The end result is a faster, more seamless experience for your users and, going off of Google's stated preferences around pageload speed and SEO, improved search engine rankings.
 
-To find out how Greenfield can help you improve your website's performance by optimizing your web hosting solutions, [contact us here](http://greenfieldhq.com/#contact). 
+To find out how Greenfield can help you improve your website's performance by optimizing your web hosting solutions, [contact us here](http://greenfieldhq.com/#contact).
 
 Like what you've read? Receive more contact like this, directly to your inbox, by subscribing to our newsletter using the form below.
