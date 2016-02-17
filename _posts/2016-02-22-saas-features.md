@@ -3,11 +3,15 @@ layout: post
 category :
 tagline:
 tags : [saas]
-title: "How Do I Decide The Best Features For My SaaS"
+title: "Choosing Your Saas Features"
 description: How do you prioritize your SaaS features? We’ve got a few ideas.
 author: Greenfield
 ---
 {% include JB/setup %}
+
+
+![Notebook diagram photo]({{ BASE_PATH }}/assets/images/saas/How-Do-I-Decide-the-Best-Features-for-My-SaaS.jpg)
+
 
 Are you looking at either building a SaaS or developing a current one? One of the things we find clients often agonize over is prioritizing which features they really need to develop, especially if they’re on a limited budget.
 
