@@ -29,7 +29,7 @@ Like anything in the SaaS/development world, there are some common methodologies
 
 You don’t want to get so tied up in complicated methodologies that you find it difficult to reach a solution though, so here are some brief descriptions - choose the one that is the best fit for your skills and purpose!
 
-###The Intuitive Approach###
+### The Intuitive Approach
 
 It’s fair to say that many businesses start out this way; the founder has some kind of experience where they feel something could be done better, or some solution could be developed, and they go ahead into development based on their gut feeling.
 
@@ -39,7 +39,7 @@ Usually the intuitive approach begins with a problem statement of something you 
 
 A pro of this approach is that you can usually get going fairly quickly from ideation to the development of a beta product. However, a con is that you haven’t actually tested the idea on potential clients before investing the time and money into development. Not everyone is Steve Jobs: unless you score a direct hit with consumers as soon as you develop, there is often more back and forth with the developers until a desired solution is met.
 
-###The Iterative Approach###
+### The Iterative Approach
 
 The iterative approach involves first developing a hypothesis, then drafting a solution based on your understanding of a target customer problem. For this to work effectively, you should have done some research or collaboration with target customers prior to completing a first draft.
 
@@ -49,7 +49,7 @@ An advantage of this approach is that you can be pretty certain that your final 
 
 [**An iterative approach to prioritizing SaaS features depends heavily on user feedback.**]({{ BASE_PATH }}/assets/files/saas/7WaysToValidateYourSaaS.pdf)
 
-###The Scored Model###
+### The Scored Model
 
 This is possibly the most complicated method because it involves you developing your own scoring method to identify which features will be the most impactful first. The higher the score, the greater the impact, so those are your features to start with. This works better if you’re informed by evidence from customers of what their problems and preferences are.
 
@@ -59,23 +59,23 @@ This method makes the scoring part a little easier because it identifies the des
 
 *Source: [Strategyn](https://strategyn.com/customer-needs/)*
 
-##Nice Theories, What Does This All Mean Practically?##
+## Nice Theories, What Does This All Mean Practically?
 
 Let’s assume you don’t have unlimited resources to build the most absolutely perfect software; you’re probably looking for a straightforward way to determine and prioritize your features as quickly as possible. A hybrid approach could be an efficient solution.
 
 Here are a few steps you can take:
 
-###\#1. Start With The Customer###
+### \#1. Start With The Customer
 
 What prevalent problem do your target customers have that your SaaS is aiming to resolve? Your initial idea may have come from your own experience or gut instinct, but you can find relatively inexpensive ways to validate the idea.
 
 For example, try asking questions on Quora or in social media groups which contain your target audience. What responses do you get? Are there common themes? Be sure to ask what frustrates them about any current solutions too.
 
-###\#2. Identify Themes###
+### \#2. Identify Themes
 
 Identify the common themes of what will be the most important for your product. For each theme, generate a list of feature ideas.
 
-###\#3. Shortlist Features###
+### \#3. Shortlist Features
 
 There are a number of ways you can go about this, but here are a few ideas for doing so:
 
@@ -84,7 +84,7 @@ Objective of the feature as it relates to your overall objectives - e.g. to reac
 Is it a core feature, one that takes your product to the next level, or a “nice to have”?
 What will put your brand on the map/is significantly different to current offerings?
 
-###\#4. Shorten The Shortlist###
+### \#4. Shorten The Shortlist
 
 You’ve identified your top feature ideas. If you need to shorten this list any further, you can apply some other parameters to them such as:
 
@@ -96,7 +96,7 @@ What is likely to have the biggest impact on your revenue?
 
 A common place for SaaS to start is with features that will have a combination of the highest impact for the customer, a significant impact on revenue and the lowest cost to build.
 
-##Get Agile##
+## Get Agile
 
 If you’re looking for the quickest possible turnaround on development, an agile process is usually a good move. This means that a large project is broken into smaller, independent components which can be developed separately.
 
@@ -106,9 +106,9 @@ It also allows you to turn around new developments relatively quickly based on f
 
 ![The Agile Saas Opportunity]({{ BASE_PATH }}/assets/images/saas/agile-marketing-development-saas-opportunity.png)
 
-*Source: [Chaotic Flow](http://chaotic-flow.com/the-missed-opportunity-of-agile-saas/)
+*Source: [Chaotic Flow](http://chaotic-flow.com/the-missed-opportunity-of-agile-saas/)*
 
-##Keep Listening##
+## Keep Listening
 
 Make sure you set up easy systems for customers to provide feedback. Are there features they really love that you’re best to leave as-is? What problems/suggestions do they have?
 
@@ -116,7 +116,7 @@ Give them the chance to offer feedback whenever they would like, but also proact
 
 [**How do you validate your SaaS ideas? Grab our free checklist.**]({{ BASE_PATH }}/assets/files/saas/7WaysToValidateYourSaaS.pdf)
 
-##Final Thoughts##
+## Final Thoughts
 
 You’ll always find a number of different opinions on how to decide the best features for your SaaS, with many methods deriving from complex theories.
 
