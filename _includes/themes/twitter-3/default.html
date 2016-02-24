@@ -62,16 +62,16 @@
     <div class="nav-spacer"></div>
 
     <ul class="nav sub-nav">
-      {% if page.url == "/home.html" %}
-        <li class="active"><a href="/home.html" class="active">Posts</a></li>
+      {% if page.url == "/home/" %}
+        <li class="active"><a href="/home/" class="active">Posts</a></li>
       {% else %}
-        <li><a href="/home.html">Posts</a></li>
+        <li><a href="/home/">Posts</a></li>
       {% endif %}
 
-      {% if page.url == "/tags.html" %}
-        <li class="active"><a href="/tags.html" class="active">Tags</a></li>
+      {% if page.url == "/tags/" %}
+        <li class="active"><a href="/tags/" class="active">Tags</a></li>
       {% else %}
-        <li><a href="/tags.html">Tags</a></li>
+        <li><a href="/tags/">Tags</a></li>
       {% endif %}
         <li>
           <a href="/atom.xml">
@@ -130,10 +130,10 @@
           console.log('toggleMenu');
           if(!$('.menu-trigger').hasClass('open')) {
             $('.menu-trigger').addClass('open');
-            $('nav > ul').stop(false,true).slideDown();			
+            $('nav > ul').stop(false,true).slideDown();
           } else {
             $('.menu-trigger').removeClass('open');
-            $('nav > ul').stop(false,true).slideUp();			
+            $('nav > ul').stop(false,true).slideUp();
           }
         },
         homesize: function() {
