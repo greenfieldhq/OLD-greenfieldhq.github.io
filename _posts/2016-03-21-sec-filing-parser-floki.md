@@ -1,0 +1,267 @@
+---
+layout: post
+title: "Parsing SEC filings with Elixir's Floki Library"
+description: "How to parse SEC XML RSS Feeds in a simple, straightforward fashion"
+category:
+tags: [elixir, parsing, fintech]
+author: vikram_ramakrishnan
+---
+{% include JB/setup %}
+
+This blog post covers one thing, primarily. Namely, how to parse [SEC filings](https://github.com/vikram7/sec_latest_filings_rss_feed_parser) 
+with the [Floki](https://github.com/philss/floki) HTML parser.
+
+## The Problem
+
+The [SEC website](https://www.sec.gov/) hosts a phenomenal amount of material. In particular,
+for those who are interested in public markets and the filings of companies
+they might invest in, it houses years of such filings. Unfortunately, while much
+of this data is difficult to handle, they do host a convenient RSS Feed for
+companies that have filed recently located [here](https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=&company=&dateb=&owner=include&start=0&count=40&output=atom).
+The RSS Feed looks something like this:
+
+```xml
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Latest Filings - Fri, 18 Mar 2016 13:01:12 EDT</title>
+<link rel="alternate" href="http://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent"/>
+<link rel="self" href="http://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent"/>
+<id>http://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent</id>
+<author><name>Webmaster</name><email>webmaster@sec.gov</email></author>
+<updated>2016-03-18T13:01:12-04:00</updated>
+<entry>
+<title>497K - PNC FUNDS (0000778202) (Filer)</title>
+<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/778202/000110465916106277/0001104659-16-106277-index.htm"/>
+<summary type="html">
+ &lt;b&gt;Filed:&lt;/b&gt; 2016-03-18 &lt;b&gt;AccNo:&lt;/b&gt; 0001104659-16-106277 &lt;b&gt;Size:&lt;/b&gt; 8 KB
+</summary>
+<updated>2016-03-18T13:00:33-04:00</updated>
+<category scheme="http://www.sec.gov/" label="form type" term="497K"/>
+<id>urn:tag:sec.gov,2008:accession-number=0001104659-16-106277</id>
+</entry>
+<entry>
+<title>497K - PNC FUNDS (0000778202) (Filer)</title>
+<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/778202/000110465916106276/0001104659-16-106276-index.htm"/>
+<summary type="html">
+ &lt;b&gt;Filed:&lt;/b&gt; 2016-03-18 &lt;b&gt;AccNo:&lt;/b&gt; 0001104659-16-106276 &lt;b&gt;Size:&lt;/b&gt; 8 KB
+</summary>
+<updated>2016-03-18T13:00:33-04:00</updated>
+<category scheme="http://www.sec.gov/" label="form type" term="497K"/>
+<id>urn:tag:sec.gov,2008:accession-number=0001104659-16-106276</id>
+</entry>
+.
+.
+.
+</feed>
+```
+
+Each "entry" in the feed is what we care most about. The entries contain filing
+information, like a link to the filing, what type of filing it is, when it was
+last updated and so forth. In the above example, there are two filings
+by PNC FUNDS, which correspond to 497K forms. Hundreds of filings can come
+through in a single day.
+
+Ideally, we could grab each entry in the feed for our purposes, which would
+make it easier to handle. It would be great to have a parser to easily run
+through the feed so we can grab what we need in the format we need it.
+
+## Enter Floki
+
+There are a number of libraries for parsing available. A great resource to find
+libraries is [awesome-elixir](https://github.com/h4cc/awesome-elixir). I found
+[Floki](https://github.com/philss/floki) to be straight forward compared to 
+some of the other libraries for the purposes here.
+
+Floki abstracts away a lot of selection headache associated with other parsers.
+It uses selectors to grab precisely what you expect to grab. Say your XML feed
+entry (`entry_xml`) looks like this:
+
+```xml
+<entry>
+<title>497K - PNC FUNDS (0000778202) (Filer)</title>
+<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/778202/000110465916106276/0001104659-16-106276-index.htm"/>
+<summary type="html">
+ &lt;b&gt;Filed:&lt;/b&gt; 2016-03-18 &lt;b&gt;AccNo:&lt;/b&gt; 0001104659-16-106276 &lt;b&gt;Size:&lt;/b&gt; 8 KB
+</summary>
+<updated>2016-03-18T13:00:33-04:00</updated>
+<category scheme="http://www.sec.gov/" label="form type" term="497K"/>
+<id>urn:tag:sec.gov,2008:accession-number=0001104659-16-106276</id>
+</entry>
+```
+
+Calling `entry_xml |> Floki.find("title")` would return the following:
+
+```
+"497K - PNC FUNDS (0000778202)"
+```
+
+Similarlly, calling `entry_xml |> Floki.find("updated")` returns the following:
+
+```
+"2016-03-18T13:00:33-04:00"
+```
+
+Simply being able to parse by selectors makes the whole process quite a bit
+easier! Of course, we need to parse the entire feed and create a list of
+entry maps, which would be the easiest data structure to handle for this task
+in Elixir.
+
+```elixir
+defmodule SecLatestFilingsRssFeedParser.Entry do
+  @moduledoc """
+  This module handles the parsing and creation of an entry
+  map. An entry in the SEC's Latest Filings RSS Feed is defined
+  by the content between opening <entry> and closing </entry>
+  tags
+  """
+
+  alias SecLatestFilingsRssFeedParser.Helpers
+
+  @doc """
+  parse/1 takes an xml entry and parses it to return a map of that entry.
+  """
+
+  def parse(xml) do
+    %{
+      title: parse_title(xml),
+      link: parse_link(xml),
+      summary: parse_summary(xml),
+      updated_date: parse_updated_date(xml),
+      rss_feed_id: parse_rss_feed_id(xml),
+      cik_id: parse_cik_id(xml),
+      category: parse_category(xml)
+    }
+  end
+
+  defp parse_category(xml) do
+    {_, metadata, _} = xml
+    |> Floki.find("category")
+    |> hd
+
+    {_, category} = metadata
+    |> List.last
+
+    category
+  end
+
+  defp parse_title(xml) do
+    xml
+    |> Floki.find("title")
+    |> hd
+    |> Helpers.extract_last_item
+  end
+
+  defp parse_link(xml) do
+    regex = ~r/http(.*)index.htm/
+    Regex.run(regex, xml, capture: :first)
+    |> hd
+  end
+
+  defp parse_summary(xml) do
+    xml
+    |> Floki.find("summary")
+    |> Floki.text
+    |> String.strip
+  end
+
+  defp parse_updated_date(xml) do
+    xml
+    |> Floki.find("updated")
+    |> hd
+    |> Helpers.extract_last_item
+  end
+
+  defp parse_rss_feed_id(xml) do
+    xml
+    |> Floki.find("id")
+    |> hd
+    |> Helpers.extract_last_item
+  end
+
+  defp parse_cik_id(xml) do
+    regex = ~r/\d{10}/
+    title = parse_title(xml)
+
+    Regex.run(regex, title, capture: :first)
+    |> hd
+  end
+end
+```
+
+We have a number of private methods that implement the Floki package to
+parse an entry and return the following type of map:
+
+```elixir
+%{
+  cik_id: "0000778202",
+  link: "http://www.sec.gov/Archives/edgar/data/778202/000110465916106276/0001104659-16-106276-index.htm",
+  rss_feed_id: "urn:tag:sec.gov,2008:accession-number=0001104659-16-106276",
+  summary: "Filed: 2016-03-18 AccNo: 0001104659-16-106276 Size: 8 KB",
+  title: "497K - PNC FUNDS (0000778202) (Filer)",
+  updated_date: "2016-03-18T13:00:33-04:00"
+  category: "497K"
+}
+```
+
+By the way, as you'll notice in the module above, not all the functions use
+Floki, since keys we care about like `cik_id` (which is the SEC's unique
+identifier of a company filing with them) are not able to be selected
+directly. Apart from the SEC modifying the structure of their feed, which
+they likely won't do soon, we can't simply get away with just using Floki
+to grab elements like this. Alas!
+
+Once we have our entries parsed, we can throw them in a feed:
+
+```elixir
+defmodule SecLatestFilingsRssFeedParser.Feed do
+  @moduledoc """
+  This module handles the parsing and creation of a feed
+  map. A feed in the SEC's Latest Filings RSS Feed is defined
+  by the content between opening <feed> and closing </feed>
+  tags, including metadata and multiple entries
+  """
+
+  alias SecLatestFilingsRssFeedParser.Helpers
+
+  @doc """
+  SecLatestFilingsRssFeedParser.parse/1 returns a map of
+  a feed with its updated date and many entries.
+  """
+
+  def parse(xml) do
+    %{
+      updated: parse_updated(xml),
+      entries: parse_feed(xml)
+    }
+  end
+
+  defp parse_feed(xml) do
+    Floki.find(xml, "entry")
+    |> Enum.map(fn entry -> SecLatestFilingsRssFeedParser.Entry.parse(Floki.raw_html(entry)) end)
+  end
+
+  defp parse_updated(feed) do
+    feed
+    |> Floki.find("updated")
+    |> hd
+    |> Helpers.extract_last_item
+  end
+end
+```
+
+Here, we grab the entire feed, find all the entries in `parse_feed/1` and map
+them to generate the maps above so we end up with a list of maps.
+
+You'll notice `Floki.raw_html/1` which lets us select an entry and return the
+HTML of that entry. What `parse_feed/1` does here is the following:
+
+```
+1. Find all elements with selector of "entry"
+2. For each of those entries, grab the raw HTML of an entry
+3. Run SecLatestFilingsRssFeedParser.Entry on (2) to produce a map of the entry
+4. Return a list of these entries
+```
+
+Once we've put our parser together, we have a pretty fast module with few
+dependencies other than `Floki`. Check out the entire `SecLatestFilingsRssFeedParser`
+[here](https://github.com/vikram7/sec_latest_filings_rss_feed_parser)!
