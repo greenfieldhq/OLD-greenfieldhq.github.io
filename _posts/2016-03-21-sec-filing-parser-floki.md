@@ -23,13 +23,11 @@ data. We investigated the [website](https://www.sec.gov) of the
 Securities and Exchange Commission or SEC, which is an agency of the US Government
 that handles and enforces various securities related laws. One duty of companies
 that are registered with the SEC is that they must provide regular public filings.
-Their website hosts a phenomenal amount of material.
+The SEC's website hosts a phenomenal amount of material.
 
-In particular, for those who are interested in public markets and the filings
-of companies they might invest in, it houses years of such filings.
 Unfortunately, much of this data is difficult to handle for a number of reasons,
-but primarily because of a lack of standardization across filings. However, they
-do host a convenient RSS Feed for the latest filings located [here](https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=&company=&dateb=&owner=include&start=0&count=40&output=atom).
+but primarily because of a lack of standardization across filings. However, the
+SEC does host a convenient RSS Feed for the latest filings located [here](https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=&company=&dateb=&owner=include&start=0&count=40&output=atom).
 The RSS Feed looks something like this:
 
 ```xml
