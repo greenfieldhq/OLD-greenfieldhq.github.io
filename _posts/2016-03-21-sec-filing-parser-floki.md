@@ -83,8 +83,8 @@ libraries is [awesome-elixir](https://github.com/h4cc/awesome-elixir). I found
 some of the other libraries for the purposes here.
 
 Floki abstracts away a lot of selection headache associated with other parsers.
-It uses XML element names to grab precisely what you expect to grab. Say your XML feed
-entry (`entry_xml`) looks like this:
+It allows you to use XML element names to grab precisely what you expect to 
+grab. Say your XML feed entry (`entry_xml`) looks like this:
 
 ```xml
 <entry>
@@ -105,7 +105,7 @@ entry (`entry_xml`) looks like this:
 "497K - PNC FUNDS (0000778202)"
 ```
 
-Similarlly, calling `entry_xml |> Floki.find("updated")` returns the following:
+Similarly, `entry_xml |> Floki.find("updated")` returns the following:
 
 ```
 "2016-03-18T13:00:33-04:00"
