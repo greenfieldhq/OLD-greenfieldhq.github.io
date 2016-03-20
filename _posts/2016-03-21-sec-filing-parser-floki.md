@@ -16,7 +16,7 @@ with the [Floki](https://github.com/philss/floki) HTML parser.
 At Greenfield, we've become more interested in FinTech after modernizing
 a large Financial Services client's web application. We've also been experimenting
 with [Elixir](http://elixir-lang.org/), which, we think, would make a great technological
-fit in FinTech given its speed and scalability.
+fit in FinTech for its speed and scalability benefits.
 
 Recently, we wanted to take a look at how Elixir could be used for parsing
 data. We investigated the [website](https://www.sec.gov) of the
@@ -265,8 +265,8 @@ end
 Here, we grab the entire feed, find all the entries in `parse_feed/1` and map
 them to generate the maps above so we end up with a list of maps.
 
-You'll notice `Floki.raw_html/1` which lets us select an entry and return the
-HTML of that entry. What `parse_feed/1` does here is the following:
+You'll notice the use of `Floki.raw_html/1` which lets us select an entry and 
+return the HTML of that entry. What `parse_feed/1` does here is the following:
 
 ```
 1. Find all elements with element name of "entry"
