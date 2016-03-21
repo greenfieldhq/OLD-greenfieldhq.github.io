@@ -32,44 +32,36 @@ The RSS Feed looks something like this:
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-<title>Latest Filings - Fri, 18 Mar 2016 13:01:12 EDT</title>
-<link rel="alternate" href="http://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent"/>
-<link rel="self" href="http://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent"/>
-<id>http://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent</id>
-<author><name>Webmaster</name><email>webmaster@sec.gov</email></author>
-<updated>2016-03-18T13:01:12-04:00</updated>
-<entry>
-<title>497K - PNC FUNDS (0000778202) (Filer)</title>
-<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/778202/000110465916106277/0001104659-16-106277-index.htm"/>
-<summary type="html">
- &lt;b&gt;Filed:&lt;/b&gt; 2016-03-18 &lt;b&gt;AccNo:&lt;/b&gt; 0001104659-16-106277 &lt;b&gt;Size:&lt;/b&gt; 8 KB
-</summary>
-<updated>2016-03-18T13:00:33-04:00</updated>
-<category scheme="http://www.sec.gov/" label="form type" term="497K"/>
-<id>urn:tag:sec.gov,2008:accession-number=0001104659-16-106277</id>
-</entry>
-<entry>
-<title>497K - PNC FUNDS (0000778202) (Filer)</title>
-<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/778202/000110465916106276/0001104659-16-106276-index.htm"/>
-<summary type="html">
- &lt;b&gt;Filed:&lt;/b&gt; 2016-03-18 &lt;b&gt;AccNo:&lt;/b&gt; 0001104659-16-106276 &lt;b&gt;Size:&lt;/b&gt; 8 KB
-</summary>
-<updated>2016-03-18T13:00:33-04:00</updated>
-<category scheme="http://www.sec.gov/" label="form type" term="497K"/>
-<id>urn:tag:sec.gov,2008:accession-number=0001104659-16-106276</id>
-</entry>
-.
-.
-.
+<feed>
+  <title> . . . </title>
+  <entry>
+    <title> . . . </title>
+    <link />
+    <summary type=". . .">
+      . . .
+    </summary>
+    <updated> . . . </updated>
+    <category scheme=". . ." label=". . ." term=". . ."/>
+    <id> . . . </id>
+  </entry>
+  <entry>
+    <title> . . . </title>
+    <link />
+    <summary type=". . .">
+      . . .
+    </summary>
+    <updated> . . . </updated>
+    <category scheme=". . ." label=". . ." term=". . ."/>
+    <id> . . . </id>
+  </entry>
 </feed>
 ```
 
 Each "entry" in the feed is what we care most about. The entries contain filing
 information, like a link to the filing, what type of filing it is, when it was
-last updated and so forth. In the above example, there are two filings
-by PNC FUNDS, which correspond to 497K forms. Hundreds of filings can come
-through in a single day.
+last updated and so forth. In the above example, there are two filing "entries,"
+which correspond to form types in the `category` XML element, called `term`
+here. Hundreds of filings can come through in a single day.
 
 Ideally, we could grab each entry in the feed for our purposes, which would
 make it easier to handle. It would be great to have a parser to easily run
@@ -89,7 +81,7 @@ grab. Say your XML feed entry (`entry_xml`) looks like this:
 ```xml
 <entry>
 <title>497K - PNC FUNDS (0000778202) (Filer)</title>
-<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/778202/000110465916106276/0001104659-16-106276-index.htm"/>
+<link rel="alternate" type="text/html" href="http://www.sec.gov/Archives/edgar/data/some-link-1"/>
 <summary type="html">
  &lt;b&gt;Filed:&lt;/b&gt; 2016-03-18 &lt;b&gt;AccNo:&lt;/b&gt; 0001104659-16-106276 &lt;b&gt;Size:&lt;/b&gt; 8 KB
 </summary>
@@ -207,7 +199,7 @@ parse an entry and return the following type of map:
 ```elixir
 %{
   cik_id: "0000778202",
-  link: "http://www.sec.gov/Archives/edgar/data/778202/000110465916106276/0001104659-16-106276-index.htm",
+  link: "http://www.sec.gov/Archives/edgar/data/some-link-1",
   rss_feed_id: "urn:tag:sec.gov,2008:accession-number=0001104659-16-106276",
   summary: "Filed: 2016-03-18 AccNo: 0001104659-16-106276 Size: 8 KB",
   title: "497K - PNC FUNDS (0000778202) (Filer)",
@@ -248,7 +240,10 @@ defmodule SecLatestFilingsRssFeedParser.Feed do
 
   defp parse_feed(xml) do
     Floki.find(xml, "entry")
-    |> Enum.map(fn entry -> SecLatestFilingsRssFeedParser.Entry.parse(Floki.raw_html(entry)) end)
+    |> Enum.map(fn entry ->
+      Floki.raw_html(entry)
+      |> SecLatestFilingsRssFeedParser.Entry.parse
+    end)
   end
 
   defp parse_updated(feed) do
