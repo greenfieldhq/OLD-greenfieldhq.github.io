@@ -18,6 +18,10 @@ mike_munroe:
   github: mikepmunroe
   name: Mike Munroe
   twitter: mikepmunroe
+nick_pendery:
+  github: npendery
+  name: Nick Pendery
+  twitter: greenfieldhq
 ryan_tremaine:
   github: rtremaine
   name: Ryan Tremaine
@@ -26,3 +30,11 @@ greenfield:
   github: greenfieldhq
   name: Greenfield
   twitter: greenfieldhq
+tom_chen:
+  github: thomascchen
+  name: Tom Chen
+  twitter: tchen
+vikram_ramakrishnan:
+  github: vikram7
+  name: Vikram Ramakrishnan
+  twitter: lordezar
